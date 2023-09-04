@@ -5,14 +5,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { RegistrationComponent } from './security/registration/registration.component';
+import { LoginComponent } from './security/login/login.component';
+import { UserComponent } from './users/user/user.component';
+import { MovieComponent } from './movies/movie/movie.component';
+import { SearchComponent } from './movies/search/search.component';
+import { SelectComponent } from './movies/select/select.component';
+import { WriteComponent } from './reviews/write/write.component';
+import { ReviewComponent } from './reviews/review/review.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationComponent,
+    LoginComponent,
+    UserComponent,
+    MovieComponent,
+    SearchComponent,
+    SelectComponent,
+    WriteComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSlideToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
