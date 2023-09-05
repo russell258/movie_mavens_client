@@ -14,6 +14,8 @@ import { SearchComponent } from './movies/search/search.component';
 import { SelectComponent } from './movies/select/select.component';
 import { WriteComponent } from './reviews/write/write.component';
 import { ReviewComponent } from './reviews/review/review.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ReviewComponent } from './reviews/review/review.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatSlideToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
