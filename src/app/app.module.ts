@@ -24,8 +24,6 @@ import { HttpClientModule } from '@angular/common/http'
     LoginComponent,
     UserComponent,
     MovieComponent,
-    SearchComponent,
-    SelectComponent,
     WriteComponent,
     ReviewComponent
   ],

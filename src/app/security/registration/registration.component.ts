@@ -1,7 +1,7 @@
 import { Component, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from './registration.service';
-import { Registration } from '../models';
+import { Registration } from '../registrationmodels';
 import { Subject } from 'rxjs';
 
 @Component({
