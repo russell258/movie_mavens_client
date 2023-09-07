@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MovieService } from './movie.service';
 import { MovieModel } from './movie-model';
 import { environment } from 'src/environments/environment.development';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -18,10 +19,18 @@ export class MovieComponent {
   trendingMovies !: MovieModel;
   moviesList: any;
 
+  subLatestMovie! : Subscription;
+  subPopularMovies! : Subscription;
+  subPlayingNow !: Subscription;
+  subTopRatedMovies !: Subscription;
+  subUpcomingMovies!: Subscription;
+  subTrendingMovies!: Subscription;
+  subMoviesList!:Subscription;
+
   constructor(private movieSvc: MovieService){}
 
   ngOnInit():void{
-    this.getLatestMovies();
+    // this.getLatestMovies();
     this.getPopularMovies();
     this.getNowPlayingMovie();
     this.getTopRatedMovies();
@@ -30,66 +39,81 @@ export class MovieComponent {
     this.getMoviesList();
   }
 
-  getLatestMovies(){
-    this.movieSvc.getLatestMovies().subscribe({
-      next: (v) => this.latestMovie = v,
-      error: (e) => console.error(e),
-      complete: ()=> console.info('Get Latest Movies complete.')
-      });
-    }
+  //comment this out first too problematic
+  // getLatestMovies(){
+  //   this.subLatestMovie=
+  //   this.movieSvc.getLatestMovies().subscribe({
+  //     next: (v) => {
+  //       this.changeBackdrop(v);
+  //       this.latestMovie = v;
+  //     },
+  //     error: (e) => console.error(e),
+  //     complete: ()=> {
+  //       console.log(this.latestMovie);
+  //     }
+  //     });
+  //   }
 
   getPopularMovies(){
+    this.subLatestMovie=
     this.movieSvc.getPopularMovies().subscribe({
       next: (v) => this.popularMovies = v,
       error: (e) => console.error(e),
-      complete:()=> console.info('Get Popular Movies complete.')
+      complete:()=> {
+        console.log(this.popularMovies);
+      }
     });
   }
 
   getNowPlayingMovie(){
+    this.subPlayingNow=
     this.movieSvc.getNowPlayingMovie().subscribe({
       next: (v) => this.playingNow = v,
       error: (e) => console.error(e),
-      complete:() => console.info('Get Movie Playing Now complete.')
+      complete:() => console.log(this.playingNow)
     });
   }
 
   getTopRatedMovies(){
+    this.subTopRatedMovies=
     this.movieSvc.getTopRatedMovies().subscribe({
       next: (v) => this.topRatedMovies = v,
       error: (e) => console.error(e),
-      complete:() => console.info('Get Top Rated Movies complete.')
+      complete:() => console.log(this.topRatedMovies)
     });
   }
 
   getUpcomingMovies(){
+    this.subUpcomingMovies=
     this.movieSvc.getUpcomingMovies().subscribe({
       next: (v) => this.upcomingMovies = v,
       error: (e) => console.error(e),
-      complete:() => console.info('Get Upcoming Movies complete.')
+      complete:() => console.log(this.upcomingMovies)
     });
   }
 
   getThisWeekTrendingMovies(){
+    this.subTrendingMovies=
     this.movieSvc.getThisWeekTrendingMovies().subscribe({
       next: (v) => this.trendingMovies = v,
       error: (e) => console.error(e),
-      complete:() => console.info('Get Trending Movies complete.')
+      complete:() => console.log(this.trendingMovies)
     });
   }
 
   getMoviesList(){
+    this.subMoviesList=
     this.movieSvc.getMoviesList().subscribe({
       next: (v) => this.moviesList = v,
       error: (e) => console.error(e),
-      complete:() => console.info('Get Movies List complete.')
+      complete:() => console.log(this.moviesList)
     });
   }
 
   modifyBackdrop(movie : MovieModel): MovieModel{
     if (movie.results){
       movie.results.forEach( m => {
-        m.backdrop_path = 'https://image.tmdb.org/t/p/original' + m.backdrop_path + 'api_key?' + environment.api_key;
+        m.backdrop_path = 'https://image.tmdb.org/t/p/original' + m.backdrop_path + '?api_key=' + environment.api_key;
         if (!m.title && m.name){
           m.title = m.name;
         }
@@ -99,4 +123,14 @@ export class MovieComponent {
     return movie;
   }
 
+  changeBackdrop(v: any) {
+    if (v.backdrop_path==null){
+      v.backdrop_path = 'https://image.tmdb.org/t/p/original' + v.poster_path + '?api_key=' + environment.api_key;
+    }else{
+      v.backdrop_path = 'https://image.tmdb.org/t/p/original' + v.backdrop_path + '?api_key=' + environment.api_key;
+    }
+  }
+
 }
+
+

@@ -1,1 +1,6 @@
-<p>movie works!</p>
+<div class="container">
+  <!-- latest Movies -->
+  <div *ngIf="latestMovie">
+    <img src="{{latestMovie?.backdrop_path}}">
+  </div>
+</div>
