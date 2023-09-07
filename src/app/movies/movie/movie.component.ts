@@ -95,7 +95,10 @@ export class MovieComponent {
   getThisWeekTrendingMovies(){
     this.subTrendingMovies=
     this.movieSvc.getThisWeekTrendingMovies().subscribe({
-      next: (v) => this.trendingMovies = v,
+      next: (v) => {
+        this.modifyBackdrop(v);
+        this.trendingMovies = v
+      },
       error: (e) => console.error(e),
       complete:() => console.log(this.trendingMovies)
     });

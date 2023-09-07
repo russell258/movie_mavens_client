@@ -1,6 +1,8 @@
 <div class="container">
-  <!-- latest Movies -->
-  <div *ngIf="latestMovie">
-    <img src="{{latestMovie?.backdrop_path}}">
+  <!-- trending Movies -->
+  <h4>Trending Movies</h4>
+  <div *ngFor="let m of trendingMovies?.results">
+    <h6>{{m.title}}</h6>
+    <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
   </div>
 </div>
