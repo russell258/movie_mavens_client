@@ -10,8 +10,6 @@ import { RegistrationComponent } from './security/registration/registration.comp
 import { LoginComponent } from './security/login/login.component';
 import { UserComponent } from './users/user/user.component';
 import { MovieComponent } from './movies/movie/movie.component';
-import { SearchComponent } from './movies/search/search.component';
-import { SelectComponent } from './movies/select/select.component';
 import { WriteComponent } from './reviews/write/write.component';
 import { ReviewComponent } from './reviews/review/review.component'
 import { ReactiveFormsModule } from '@angular/forms';
