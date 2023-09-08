@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -13,9 +13,6 @@ export class MovieService {
   url : string = 'https://api.themoviedb.org/3';
   constructor(private http: HttpClient) { }
 
-  getLatestMovies() : Observable<any> {
-    return this.http.get<any>(this.url+ '/movie/latest?api_key='+environment.api_key);
-  }
 
   getPopularMovies() : Observable<any> {
     return this.http.get<any>(this.url + '/movie/popular?api_key='+environment.api_key);
@@ -39,6 +36,10 @@ export class MovieService {
 
   getMoviesList(): Observable<any> {
     return this.http.get<any>(this.url + '/genre/movie/list?api_key='+environment.api_key);
+  }
+
+  getMovies(firstPath: string, secondPath: string, thirdPath?: string): Observable<any>{
+    return this.http.get<any>(`/api/home/${firstPath}/${secondPath}/${thirdPath}`);
   }
 
 }

@@ -30,7 +30,6 @@ export class MovieComponent {
   constructor(private movieSvc: MovieService){}
 
   ngOnInit():void{
-    // this.getLatestMovies();
     this.getPopularMovies();
     this.getNowPlayingMovie();
     this.getTopRatedMovies();
@@ -39,24 +38,9 @@ export class MovieComponent {
     this.getMoviesList();
   }
 
-  //comment this out first too problematic
-  // getLatestMovies(){
-  //   this.subLatestMovie=
-  //   this.movieSvc.getLatestMovies().subscribe({
-  //     next: (v) => {
-  //       this.changeBackdrop(v);
-  //       this.latestMovie = v;
-  //     },
-  //     error: (e) => console.error(e),
-  //     complete: ()=> {
-  //       console.log(this.latestMovie);
-  //     }
-  //     });
-  //   }
-
   getPopularMovies(){
-    this.subLatestMovie=
-    this.movieSvc.getPopularMovies().subscribe({
+    this.subLatestMovie=this.movieSvc.getMovies('movie','popular').subscribe({
+    // this.movieSvc.getPopularMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v)
         this.popularMovies = v
@@ -106,7 +90,8 @@ export class MovieComponent {
 
   getThisWeekTrendingMovies(){
     this.subTrendingMovies=
-    this.movieSvc.getThisWeekTrendingMovies().subscribe({
+    this.movieSvc.getMovies('trending','movie','week').subscribe({
+    // this.movieSvc.getThisWeekTrendingMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.trendingMovies = v
@@ -137,14 +122,6 @@ export class MovieComponent {
 
     }
     return movie;
-  }
-
-  changeBackdrop(v: any) {
-    if (v.backdrop_path==null){
-      v.backdrop_path = 'https://image.tmdb.org/t/p/original' + v.poster_path + '?api_key=' + environment.api_key;
-    }else{
-      v.backdrop_path = 'https://image.tmdb.org/t/p/original' + v.backdrop_path + '?api_key=' + environment.api_key;
-    }
   }
 
 }
