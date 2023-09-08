@@ -1,1 +1,19 @@
-<p>write works!</p>
+<p>1. Need to emit data from clicked movie and input into this title + add the id into form? to store</p>
+<p>2. on submit, pass data to backend and sql</p>
+<h1>Write your review!</h1>
+
+<form [formGroup]="reviewForm" (ngSubmit)="reviewSubmit()">
+  <div>
+    <h3>Title: </h3>
+    <input type="text" formControlName="title">
+  </div>
+  <div>
+    <h3>Rating: </h3>
+    <input type="number" id="rating" formControlName="rating" placeholder="Rate 1 to 10" step="1">
+  </div>
+  <div>
+    <h3>Review: </h3>
+    <input type="text" formControlName="review">
+  </div>
+  <button type="submit" [disabled]="!reviewForm.valid">Add Review</button>
+</form>

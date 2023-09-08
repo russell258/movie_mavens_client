@@ -116,6 +116,7 @@ export class MovieComponent {
     });
   }
 
+  //use for filtering genres later on
   getMoviesList(){
     this.subMoviesList=
     this.movieSvc.getMoviesList().subscribe({

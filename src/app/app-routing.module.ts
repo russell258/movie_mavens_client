@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'reviews', component: ReviewComponent},
   { path: 'home', component: MovieComponent},
   { path: 'write/:id', component: WriteComponent},
-  // { path: '**', redirectTo: '/login', pathMatch: 'full'}
+  { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
