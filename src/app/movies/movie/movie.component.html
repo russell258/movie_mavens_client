@@ -1,8 +1,65 @@
 <div class="container">
   <!-- trending Movies -->
-  <h4>Trending Movies</h4>
-  <div *ngFor="let m of trendingMovies?.results">
-    <h6>{{m.title}}</h6>
-    <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+  <h1> ADD BACKDROP MODIFY FUNCTION TO THE REST</h1>
+  <h2>Trending Movies</h2>
+  <div *ngFor="let m of trendingMovies?.results; let i = index">
+    <div *ngIf="i<6">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <h5>{{m.title}}</h5>
+      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Language: <b>{{m.original_language}}</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Popular Movies -->
+  <h2>Popular Movies</h2>
+  <div *ngFor="let m of popularMovies?.results; let i = index">
+    <div *ngIf="i<6">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <h5>{{m.title}}</h5>
+      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Language: <b>{{m.original_language}}</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Playing Now Movies -->
+  <h2>Movies Playing Now</h2>
+  <div *ngFor="let m of playingNow?.results; let i = index">
+    <div *ngIf="i<6">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <h5>{{m.title}}</h5>
+      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Language: <b>{{m.original_language}}</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Top Rated -->
+  <h2>Top Rated Movies</h2>
+  <div *ngFor="let m of topRatedMovies?.results; let i = index">
+    <div *ngIf="i<6">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <h5>{{m.title}}</h5>
+      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Language: <b>{{m.original_language}}</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Upcoming Movies -->
+  <h2>Upcoming Movies</h2>
+  <div *ngFor="let m of upcomingMovies?.results; let i = index">
+    <div *ngIf="i<6">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <h5>{{m.title}}</h5>
+      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Language: <b>{{m.original_language}}</b></p>
+    </div>
   </div>
 </div>

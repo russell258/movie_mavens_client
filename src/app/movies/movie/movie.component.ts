@@ -57,7 +57,10 @@ export class MovieComponent {
   getPopularMovies(){
     this.subLatestMovie=
     this.movieSvc.getPopularMovies().subscribe({
-      next: (v) => this.popularMovies = v,
+      next: (v) => {
+        this.modifyBackdrop(v)
+        this.popularMovies = v
+      },
       error: (e) => console.error(e),
       complete:()=> {
         console.log(this.popularMovies);
@@ -68,7 +71,10 @@ export class MovieComponent {
   getNowPlayingMovie(){
     this.subPlayingNow=
     this.movieSvc.getNowPlayingMovie().subscribe({
-      next: (v) => this.playingNow = v,
+      next: (v) => {
+        this.modifyBackdrop(v);
+        this.playingNow = v
+      },
       error: (e) => console.error(e),
       complete:() => console.log(this.playingNow)
     });
@@ -77,7 +83,10 @@ export class MovieComponent {
   getTopRatedMovies(){
     this.subTopRatedMovies=
     this.movieSvc.getTopRatedMovies().subscribe({
-      next: (v) => this.topRatedMovies = v,
+      next: (v) => {
+        this.modifyBackdrop(v);
+        this.topRatedMovies = v
+      },
       error: (e) => console.error(e),
       complete:() => console.log(this.topRatedMovies)
     });
@@ -86,7 +95,10 @@ export class MovieComponent {
   getUpcomingMovies(){
     this.subUpcomingMovies=
     this.movieSvc.getUpcomingMovies().subscribe({
-      next: (v) => this.upcomingMovies = v,
+      next: (v) => {
+        this.modifyBackdrop(v);
+        this.upcomingMovies = v
+      },
       error: (e) => console.error(e),
       complete:() => console.log(this.upcomingMovies)
     });
