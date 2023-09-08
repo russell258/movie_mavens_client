@@ -1,65 +1,70 @@
-<div class="container">
+<div class="container" style="background-color:brown">
   <!-- trending Movies -->
-  <h1> ADD BACKDROP MODIFY FUNCTION TO THE REST</h1>
+  <h1 style="color:white"> ADD BACKDROP MODIFY FUNCTION TO THE REST</h1>
   <h2>Trending Movies</h2>
   <div *ngFor="let m of trendingMovies?.results; let i = index">
-    <div *ngIf="i<6">
+    <div *ngIf="i<3">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
+      <button [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="background-color:brown">
   <!-- Popular Movies -->
   <h2>Popular Movies</h2>
   <div *ngFor="let m of popularMovies?.results; let i = index">
-    <div *ngIf="i<6">
+    <div *ngIf="i<3">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
+      <button [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="background-color:brown">
   <!-- Playing Now Movies -->
   <h2>Movies Playing Now</h2>
   <div *ngFor="let m of playingNow?.results; let i = index">
-    <div *ngIf="i<6">
+    <div *ngIf="i<3">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
+      <button [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="background-color:brown">
   <!-- Top Rated -->
   <h2>Top Rated Movies</h2>
   <div *ngFor="let m of topRatedMovies?.results; let i = index">
-    <div *ngIf="i<6">
+    <div *ngIf="i<3">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
+      <button [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="background-color:brown">
   <!-- Upcoming Movies -->
   <h2>Upcoming Movies</h2>
   <div *ngFor="let m of upcomingMovies?.results; let i = index">
-    <div *ngIf="i<6">
+    <div *ngIf="i<3">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
+      <button [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
   </div>
 </div>
