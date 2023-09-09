@@ -39,7 +39,7 @@ export class MovieComponent {
   }
 
   getPopularMovies(){
-    this.subLatestMovie=this.movieSvc.getMovies('movie','popular').subscribe({
+    this.subLatestMovie=this.movieSvc.getMoviesTwoPaths('movie','popular').subscribe({
     // this.movieSvc.getPopularMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v)
@@ -53,8 +53,8 @@ export class MovieComponent {
   }
 
   getNowPlayingMovie(){
-    this.subPlayingNow=
-    this.movieSvc.getNowPlayingMovie().subscribe({
+    this.subPlayingNow=this.movieSvc.getMoviesTwoPaths('movie','now_playing').subscribe({
+    // this.movieSvc.getNowPlayingMovie().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.playingNow = v
@@ -65,8 +65,8 @@ export class MovieComponent {
   }
 
   getTopRatedMovies(){
-    this.subTopRatedMovies=
-    this.movieSvc.getTopRatedMovies().subscribe({
+    this.subTopRatedMovies=this.movieSvc.getMoviesTwoPaths('movie','top_rated').subscribe({
+    // this.movieSvc.getTopRatedMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.topRatedMovies = v
@@ -77,8 +77,8 @@ export class MovieComponent {
   }
 
   getUpcomingMovies(){
-    this.subUpcomingMovies=
-    this.movieSvc.getUpcomingMovies().subscribe({
+    this.subUpcomingMovies=this.movieSvc.getMoviesTwoPaths('movie','upcoming').subscribe({
+    // this.movieSvc.getUpcomingMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.upcomingMovies = v
@@ -89,8 +89,7 @@ export class MovieComponent {
   }
 
   getThisWeekTrendingMovies(){
-    this.subTrendingMovies=
-    this.movieSvc.getMovies('trending','movie','week').subscribe({
+    this.subTrendingMovies=this.movieSvc.getMoviesThreePaths('trending','movie','week').subscribe({
     // this.movieSvc.getThisWeekTrendingMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
@@ -103,8 +102,8 @@ export class MovieComponent {
 
   //use for filtering genres later on
   getMoviesList(){
-    this.subMoviesList=
-    this.movieSvc.getMoviesList().subscribe({
+    this.subMoviesList=this.movieSvc.getMoviesThreePaths('genre','movie','list').subscribe({
+    // this.movieSvc.getMoviesList().subscribe({
       next: (v) => this.moviesList = v,
       error: (e) => console.error(e),
       complete:() => console.log(this.moviesList)
