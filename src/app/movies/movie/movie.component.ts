@@ -11,8 +11,6 @@ import { Subscription } from 'rxjs';
 })
 export class MovieComponent {
 
-  // @Output() writeReview = new EventEmitter<ResultsEntity>();
-
   latestMovie: any;
   popularMovies !: MovieModel;
   playingNow !: MovieModel;
