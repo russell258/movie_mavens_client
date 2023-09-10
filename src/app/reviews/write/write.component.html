@@ -5,6 +5,8 @@
 <form [formGroup]="reviewForm" (ngSubmit)="reviewSubmit()">
   <div>
     <h3>Title: </h3>
+    <!-- test out input -->
+    <div *ngFor = "let m of movie"><p>{{m.title}}</p></div>
     <input type="text" formControlName="title">
   </div>
   <div>

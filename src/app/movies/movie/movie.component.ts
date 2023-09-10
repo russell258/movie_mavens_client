@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MovieService } from './movie.service';
-import { MovieModel } from './movie-model';
+import { MovieModel, ResultsEntity } from './movie-model';
 import { environment } from 'src/environments/environment.development';
 import { Subscription } from 'rxjs';
 
@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent {
+
+  // @Output() writeReview = new EventEmitter<ResultsEntity>();
 
   latestMovie: any;
   popularMovies !: MovieModel;
@@ -40,7 +42,6 @@ export class MovieComponent {
 
   getPopularMovies(){
     this.subLatestMovie=this.movieSvc.getMoviesTwoPaths('movie','popular').subscribe({
-    // this.movieSvc.getPopularMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v)
         this.popularMovies = v
@@ -54,7 +55,6 @@ export class MovieComponent {
 
   getNowPlayingMovie(){
     this.subPlayingNow=this.movieSvc.getMoviesTwoPaths('movie','now_playing').subscribe({
-    // this.movieSvc.getNowPlayingMovie().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.playingNow = v
@@ -66,7 +66,6 @@ export class MovieComponent {
 
   getTopRatedMovies(){
     this.subTopRatedMovies=this.movieSvc.getMoviesTwoPaths('movie','top_rated').subscribe({
-    // this.movieSvc.getTopRatedMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.topRatedMovies = v
@@ -78,7 +77,6 @@ export class MovieComponent {
 
   getUpcomingMovies(){
     this.subUpcomingMovies=this.movieSvc.getMoviesTwoPaths('movie','upcoming').subscribe({
-    // this.movieSvc.getUpcomingMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.upcomingMovies = v
@@ -90,7 +88,6 @@ export class MovieComponent {
 
   getThisWeekTrendingMovies(){
     this.subTrendingMovies=this.movieSvc.getMoviesThreePaths('trending','movie','week').subscribe({
-    // this.movieSvc.getThisWeekTrendingMovies().subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
         this.trendingMovies = v
@@ -103,7 +100,6 @@ export class MovieComponent {
   //use for filtering genres later on
   getMoviesList(){
     this.subMoviesList=this.movieSvc.getMoviesThreePaths('genre','movie','list').subscribe({
-    // this.movieSvc.getMoviesList().subscribe({
       next: (v) => this.moviesList = v,
       error: (e) => console.error(e),
       complete:() => console.log(this.moviesList)
@@ -118,9 +114,12 @@ export class MovieComponent {
           m.title = m.name;
         }
       });
-
     }
     return movie;
+  }
+
+  writeReview(movie: any){
+    this.movieSvc.movieData.next(movie);
   }
 
 }
