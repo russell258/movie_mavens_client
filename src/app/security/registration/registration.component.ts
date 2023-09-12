@@ -1,8 +1,11 @@
+import { HttpService } from './../login/http.service';
 import { Component, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationService } from './registration.service';
 import { Registration } from '../registrationmodels';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-registration',
@@ -11,45 +14,51 @@ import { Subject } from 'rxjs';
 })
 export class RegistrationComponent {
 
-  @Input()
-  regInfo!: Registration
-
-  @Output()
-  newRegistration = new Subject<Registration>();
+  constructor(private router: Router, private httpService:HttpService){}
 
   regForm!: FormGroup;
 
   private fb = inject(FormBuilder);
   private regSvc = inject(RegistrationService);
 
-ngOnInit(): void{
-  this.regForm = this.createRegistrationForm();
+  user:any;
 
-  //check if there is a way to pass in data to register with suggestions
-  if (!!this.regForm){
-    this.populateForm(this.regInfo);
+ngOnInit(): void{
+  this.user={
+    id:"",
+    email:"",
+    username:"",
+    password:""
+  }
+  this.regForm = this.fb.group({
+    email: this.fb.control<string>('',[Validators.required,Validators.email]),
+    username: this.fb.control<string>('',[Validators.required,Validators.minLength(5)]),
+    password: this.fb.control<string>('',[Validators.required,Validators.minLength(8)])
+    });
   }
 
-}
 
-populateForm(data: Registration) {
-  this.regForm.get('email')?.setValue(this.regInfo.email)
-  this.regForm.get('username')?.setValue(this.regInfo.username)
-  this.regForm.get('password')?.setValue(this.regInfo.password)
-}
-
+  //backend registers and logs in -- need to handle the token and set to local storage
 performReg(){
-  const form: Registration = this.regForm.value;
-  console.info('form: ', form);
-  this.newRegistration.next(form);
-}
+  this.user.id=crypto.randomUUID().substring(0,8);
+  this.user.email= this.regForm.value.email,
+  this.user.username=this.regForm.value.username,
+  this.user.password=this.regForm.value.password,
 
-private createRegistrationForm(){
-  return this.fb.group({
-    email: this.fb.control<string>('',[Validators.required, Validators.email]),
-    username: this.fb.control<string>('',[Validators.required, Validators.minLength(5)]),
-    password: this.fb.control<string>('',[Validators.required,Validators.minLength(5)])
-  })
+  //how to display the message that username already exists?
+  this.httpService.request('POST', '/api/register', this.user)
+  .subscribe({
+    next: (data) => {
+      console.log(data.username);
+      alert("Registered successfully! Please proceed to login");
+      this.router.navigate(['/login']);
+    },
+    error:(e)=>{
+      console.error(e);
+      alert(e.message);
+    }
+  });
+  // this.router.navigate(['/home']);
 }
 
 }

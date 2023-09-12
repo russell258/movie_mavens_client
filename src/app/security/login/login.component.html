@@ -4,10 +4,23 @@
 <hr>
 
 <h2>Sign in to your account</h2>
-<p>Email Address</p>
-<p>Password</p>
-<button [routerLink]="['/home']">Log in</button>
-
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+  <table>
+    <tr>
+      <td>Username: </td>
+      <input type="text" size="30" formControlName="username">
+    </tr>
+    <tr>
+      <td>Password: </td>
+      <input type="text" size="30" formControlName="password">
+    </tr>
+  </table>
+  <button type="submit" [disabled]="loginForm.invalid">Log in</button>
+</form>
 
 <hr>
 <p>New user?</p> <a [routerLink]="['/register']">Create an account</a>
+
+
+<h1>Get started with Movie Mavens today!</h1>
+

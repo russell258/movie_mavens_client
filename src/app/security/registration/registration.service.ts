@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Registration, RegistrationResponse } from '../registrationmodels';
-import { firstValueFrom } from "rxjs";
+import { Observable, firstValueFrom } from "rxjs";
 
 
-const URL = 'http://localhost:8080/api/register';
+const URL = '/api/register';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,8 @@ export class RegistrationService {
 
   http = inject(HttpClient);
 
-  register(form: Registration): Promise<RegistrationResponse>{
-    return firstValueFrom(
-      this.http.post<RegistrationResponse>(URL, form)
-    )
+  register(form: FormData): Observable<any>{
+    return this.http.post<string>(URL, form)
   }
 
 }
