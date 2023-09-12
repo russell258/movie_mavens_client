@@ -31,7 +31,6 @@ export class LoginComponent {
     handleSubmit() {
       this.loginDetails.username = this.loginForm.value.username;
       this.loginDetails.password = this.loginForm.value.password;
-      console.log(this.loginDetails);
       this.login(this.loginDetails);
     }
 
@@ -40,8 +39,10 @@ export class LoginComponent {
             .subscribe({
               next: (data) => {
                 this.httpService.setAuthToken(data.token);
+                // console.log("login data token: " + data.token);
                 // this.loginService.setUserData(data);
-                console.log(data)
+                window.sessionStorage.setItem("user_id",data.id);
+                console.log(window.sessionStorage.getItem("user_id"));
                 alert("Login successful!");
                 this.router.navigate(['/home'])
               },

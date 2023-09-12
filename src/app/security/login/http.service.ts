@@ -16,19 +16,19 @@ export class HttpService {
   setAuthToken(token: string|null): void{
     if (token!==null){
       window.localStorage.setItem("auth_token",token);
-      console.log(token);
+      console.log("token has been set!!: "+ token);
     }else{
       window.localStorage.removeItem("auth_token");
     }
   }
 
   request(method: string, url:string, data:any): Observable<any>{
-    let headers = new HttpHeaders();
+    let headers:any;
 
     if (this.getAuthToken()!==null){
-      headers.set('Authorization', `Bearer ${this.getAuthToken()}`);
+      headers = new HttpHeaders().set('Authorization', `Bearer ${this.getAuthToken()}`);
     }
-
+    console.log(headers);
     switch(method.toLowerCase()) {
       case 'get':
           return this.httpClient.get<any>(url, {headers: headers});
