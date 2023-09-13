@@ -44,7 +44,7 @@ export class LoginComponent {
                 window.sessionStorage.setItem("user_id",data.id);
                 console.log(window.sessionStorage.getItem("user_id"));
                 alert("Login successful!");
-                this.router.navigate(['/home'])
+                this.router.navigate(['/movies'])
               },
               error: (e) => {
                 this.httpService.setAuthToken(null);

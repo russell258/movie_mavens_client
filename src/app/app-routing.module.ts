@@ -5,13 +5,17 @@ import { RegistrationComponent } from './security/registration/registration.comp
 import { ReviewComponent } from './reviews/review/review.component';
 import { MovieComponent } from './movies/movie/movie.component';
 import { WriteComponent } from './reviews/write/write.component';
+import { AboutComponent } from './component/about/about.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegistrationComponent},
   { path: 'reviews', component: ReviewComponent},
-  { path: 'home', component: MovieComponent},
+  { path: 'movies', component: MovieComponent},
   { path: 'write/:id', component: WriteComponent},
+  { path: 'about', component:AboutComponent},
+  { path: 'contact', component:ContactComponent},
   { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
