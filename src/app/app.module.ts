@@ -18,8 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component'
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { MapComponent } from './component/map/map.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +30,13 @@ import { MapComponent } from './component/map/map.component';
     ReviewComponent,
     NavbarComponent,
     AboutComponent,
-    ContactComponent,
-    MapComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    LeafletModule,
     MatSlideToggleModule,
     MatToolbarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
