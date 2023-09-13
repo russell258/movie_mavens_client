@@ -24,16 +24,13 @@ export class ReviewComponent {
     this.getReviewsList();
   }
 
-  ngOnChanges():void{
-    this.getReviewsList();
-  }
-
   deleteReview(review_id, movie_title){
     console.log("delete Review clicked");
     this.subDeleteReview = this.reviewSvc.deleteReview(review_id).subscribe({
       next:(data)=>{
         let jsonObj = JSON.stringify(data);
         alert("Your review for "+movie_title + " has been deleted.");
+        this.getReviewsList();
       },
       error: (e)=>{
         console.error(e);
