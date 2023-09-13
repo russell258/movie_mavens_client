@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component'
+import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ContactComponent } from './component/contact/contact.component'
     ReviewComponent,
     NavbarComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { ContactComponent } from './component/contact/contact.component'
     HttpClientModule,
     MatSlideToggleModule,
     MatToolbarModule,
+    MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

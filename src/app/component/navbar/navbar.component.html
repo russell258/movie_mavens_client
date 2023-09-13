@@ -1,16 +1,15 @@
-<p>
-  <mat-toolbar>
-    <span>Movie Mavens</span>
-    &nbsp;
-    <a [routerLink]="['/about']">About</a>
-    &nbsp;
-    <a [routerLink]="['/contact']">Contact</a>
-    &nbsp;
-    <a [routerLink]="['/movies']">Movies</a>
-    &nbsp;
-    <a [routerLink]="['/reviews']">Reviews</a>
-    &nbsp;
-    <a [routerLink]="['/users']">Users</a>
+<mat-toolbar color="warn" class="navbar">
+  <span>
+    <a mat-button [routerLink]="['/home']">Movie Mavens</a>
+  </span>
 
-  </mat-toolbar>
-</p>
+  <div class="spacer"></div>
+
+  <a mat-button-raised [routerLink]="['/about']">About</a>
+  <a mat-button-raised [routerLink]="['/contact']">Contact</a>
+  <a mat-button-raised [routerLink]="['/movies']">Movies</a>
+  <a mat-button-raised [routerLink]="['/reviews']">Reviews</a>
+  <a mat-button-raised [routerLink]="['/user']">Users</a>
+
+</mat-toolbar>
+

@@ -30,7 +30,6 @@ export class WriteComponent implements OnInit{
       console.log("Movie Data retrieved");
       this.movie = data;
       console.log(this.movie);
-      console.log("testing token: " + window.localStorage.getItem("auth_token"));
     })
     // this.reviewForm;
     this.reviewForm = this.fb.group({

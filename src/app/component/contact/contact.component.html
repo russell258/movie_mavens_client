@@ -1,14 +1,37 @@
 <h1>Get in touch with us</h1>
 
 
-<img src="https://s.yimg.com/ny/api/res/1.2/DVO3TyYh.v3hj3NhyzvbaA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ3OA--/https://media.zenfs.com/en-SG/homerun/vulcanpost.com/386fcd7f55e166ecee50875b54a3dd19" width="500" height="auto">
+<img src="/assets/contact.png" width="500" height="auto" alt="https://s.yimg.com/ny/api/res/1.2/DVO3TyYh.v3hj3NhyzvbaA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ3OA--/https://media.zenfs.com/en-SG/homerun/vulcanpost.com/386fcd7f55e166ecee50875b54a3dd19">
 <h2>
   Contact:
 </h2>
-<h3>
+<p>
   moviemvn@gmail.com
-</h3>
-<p> For further enquires, </p>
+</p>
+<h2>
+  Based in:
+</h2>
+<p>
+  NUS ISS, Singapore
+</p>
+
+<div class="container">
+  <form [formGroup]="contactForm" (ngSubmit)="contactSubmit()">
+    <div>
+      <h3>Full Name</h3>
+      <input type="text" formControlName="fullName">
+    </div>
+    <div>
+      <h3>Email</h3>
+      <input type="text" formControlName="email">
+    </div>
+    <div>
+      <h3>Message</h3>
+      <input type="text" formControlName="message">
+    </div>
+    <button type="submit" [disabled]="!contactForm.valid">Contact Us</button>
+  </form>
+</div>
 
 <br>
 <h2>This project was conceived in NUS ISS: </h2>

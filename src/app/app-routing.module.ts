@@ -7,6 +7,8 @@ import { MovieComponent } from './movies/movie/movie.component';
 import { WriteComponent } from './reviews/write/write.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { UserComponent } from './users/user/user.component';
+import { HomeComponent } from './component/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'write/:id', component: WriteComponent},
   { path: 'about', component:AboutComponent},
   { path: 'contact', component:ContactComponent},
+  { path: 'user', component: UserComponent},
+  { path: 'home', component: HomeComponent},
   { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
