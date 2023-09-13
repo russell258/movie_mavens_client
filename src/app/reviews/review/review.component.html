@@ -8,5 +8,6 @@
     <p>Review: {{r.review}}</p>
     <img src="{{r.image_url}}" width="50" height="auto" onerror="this.style.display='none'">
     <p> Posted by: {{r.username}}, on {{r.posted_on | date:'longDate'}}</p>
+    <button *ngIf="r.user_id ==this.userid" (click)="deleteReview(r.review_id, r.title)">X</button>
   </div>
 </div>

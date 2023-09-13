@@ -2,7 +2,7 @@
   <!-- trending Movies -->
   <h2>Trending Movies</h2>
   <div *ngFor="let m of trendingMovies?.results; let i = index">
-    <div *ngIf="i<3">
+    <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
@@ -16,7 +16,7 @@
   <!-- Popular Movies -->
   <h2>Popular Movies</h2>
   <div *ngFor="let m of popularMovies?.results; let i = index">
-    <div *ngIf="i<3">
+    <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
@@ -30,7 +30,7 @@
   <!-- Playing Now Movies -->
   <h2>Movies Playing Now</h2>
   <div *ngFor="let m of playingNow?.results; let i = index">
-    <div *ngIf="i<3">
+    <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
@@ -44,7 +44,7 @@
   <!-- Top Rated -->
   <h2>Top Rated Movies</h2>
   <div *ngFor="let m of topRatedMovies?.results; let i = index">
-    <div *ngIf="i<3">
+    <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>
@@ -58,7 +58,7 @@
   <!-- Upcoming Movies -->
   <h2>Upcoming Movies</h2>
   <div *ngFor="let m of upcomingMovies?.results; let i = index">
-    <div *ngIf="i<3">
+    <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average}}</span></p>

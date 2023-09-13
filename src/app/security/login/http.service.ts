@@ -40,7 +40,8 @@ export class HttpService {
           return this.httpClient.put<any>(url, data, {headers: headers});
         break;
       default:
-          return this.httpClient.delete<any>(url);
+          console.log("delete triggered");
+          return this.httpClient.delete<any>(url, {headers:headers});
     }
   }
 

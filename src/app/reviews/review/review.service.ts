@@ -18,4 +18,9 @@ export class ReviewService {
     return this.httpService.request('GET','/api/movies',"");
   }
 
+  deleteReview(review_id):Observable<any>{
+    console.log("review service entered");
+    return this.httpService.request('',`/api/delete/review/${review_id}`,'');
+  }
+
 }
