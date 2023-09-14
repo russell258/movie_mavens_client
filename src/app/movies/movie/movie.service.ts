@@ -15,12 +15,12 @@ export class MovieService {
   constructor(private http: HttpClient) {
   }
 
-  getMoviesThreePaths(firstPath: string, secondPath: string, thirdPath: string): Observable<any>{
-    return this.http.get<any>(`/api/movies/${firstPath}/${secondPath}/${thirdPath}`);
+  getMoviesThreePaths(firstPath: string, secondPath: string, thirdPath: string, page:number): Observable<any>{
+    return this.http.get<any>(`/api/movies/${firstPath}/${secondPath}/${thirdPath}?page=${page}`);
   }
 
-  getMoviesTwoPaths(firstPath:string, secondPath: string):Observable<any>{
-    return this.http.get<any>(`/api/movies/${firstPath}/${secondPath}`);
+  getMoviesTwoPaths(firstPath:string, secondPath: string, page:number):Observable<any>{
+    return this.http.get<any>(`/api/movies/${firstPath}/${secondPath}?page=${page}`);
   }
 
 }

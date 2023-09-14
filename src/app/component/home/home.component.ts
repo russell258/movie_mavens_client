@@ -14,7 +14,7 @@ export class HomeComponent {
 
   searchMovies(form: NgForm){
     const search = form.value.search;
-    console.log(search);
+    console.log("search input: "+ search);
     form.reset();
     this.searchSvc.searchString.next(search);
     this.router.navigate(['/search']);

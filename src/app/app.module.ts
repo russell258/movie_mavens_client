@@ -22,6 +22,11 @@ import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './component/home/home.component';
 import { SearchComponent } from './component/search/search.component';
 import { MaterialModule } from './material.module';
+import { PopularComponent } from './movies/popular/popular.component';
+import { PlayingComponent } from './movies/playing/playing.component';
+import { TopComponent } from './movies/top/top.component';
+import { TrendingComponent } from './movies/trending/trending.component';
+import { UpcomingComponent } from './movies/upcoming/upcoming.component';
 
 
 @NgModule({
@@ -37,7 +42,12 @@ import { MaterialModule } from './material.module';
     AboutComponent,
     ContactComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    PopularComponent,
+    PlayingComponent,
+    TopComponent,
+    TrendingComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,

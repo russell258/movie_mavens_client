@@ -16,7 +16,7 @@ export class SearchComponent {
   pageNo = 1;
 
   searchInput !: string;
-  searchList !: MovieModel;
+  searchList !: any;
 
   subSearchList !: Subscription;
 

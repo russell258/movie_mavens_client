@@ -1,6 +1,3 @@
-<p>Search and Select component maybe don't need, put in nav bar directly and generate from review dashboard?</p>
-<p>4. Filter search bar? How to do</p>
-
 <div class="container">
   <div *ngFor="let r of reviewsList">
     <h1>{{r.title}}</h1>
@@ -8,6 +5,6 @@
     <p>Review: {{r.review}}</p>
     <img src="{{r.image_url}}" width="50" height="auto" onerror="this.style.display='none'">
     <p> Posted by: {{r.username}}, on {{r.posted_on | date:'longDate'}}</p>
-    <button *ngIf="r.user_id ==this.userid" (click)="deleteReview(r.review_id, r.title)">X</button>
+    <button matTooltip="Delete this review" *ngIf="r.user_id ==this.userid" (click)="deleteReview(r.review_id, r.title)">X</button>
   </div>
 </div>
