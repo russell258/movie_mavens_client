@@ -17,11 +17,12 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder, private httpService: HttpService){}
 
-  userid:string = window.sessionStorage.getItem("user_id");
+  userid: string;
 
   ngOnInit():void{
+    this.userid = window.sessionStorage.getItem("user_id");
     this.contactForm = this.fb.group({
-      uid: this.fb.control<string>(this.userid),
+      user_id: this.fb.control<string>(this.userid),
       fullName: this.fb.control<string>('',[Validators.required]),
       email: this.fb.control<string>('',[Validators.required,Validators.email]),
       message: this.fb.control<string>('',[Validators.required])
@@ -30,6 +31,7 @@ export class ContactComponent {
 
 
   contactSubmit(){
+    console.log(this.contactForm.value as ContactModel);
     this.httpService.request('POST','/api/contact',this.contactForm.value as ContactModel).subscribe({
       next: (data)=>{
         let jsonObj = JSON.stringify(data);
