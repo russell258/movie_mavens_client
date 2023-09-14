@@ -14,6 +14,10 @@ export class ReviewService {
     return this.httpService.request('GET','/api/reviews',"");
   }
 
+  getUserReviews(user_id):Observable<any>{
+    return this.httpService.request('GET',`/api/users?uid=${user_id}`,'');
+  }
+
   getAllMovies(): Observable<any>{
     return this.httpService.request('GET','/api/movies',"");
   }

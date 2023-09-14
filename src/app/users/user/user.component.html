@@ -1,1 +1,16 @@
-<p>user works!</p>
+<div class="container">
+  <h2>
+    Number of Reviews made: {{userReviews.length}}
+  </h2>
+</div>
+
+<div class="container">
+  <div *ngFor = "let u of userReviews">
+    <h1>Movie: {{u.title}}</h1>
+    <p>Rating: {{u.rating}}</p>
+    <p>Review: {{u.review}}</p>
+    <img src = "{{u.image_url}}" width="150" height="auto" onerror="this.style.display='none'">
+    <p> Posted on {{u.posted_on | date:'longDate'}}</p>
+    <button *ngIf="u.user_id ==this.user_id" (click)="deleteReview(u.review_id, u.title)">X</button>
+  </div>
+</div>
