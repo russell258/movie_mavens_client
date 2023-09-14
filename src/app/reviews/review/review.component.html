@@ -3,7 +3,7 @@
 
 <div class="container">
   <div *ngFor="let r of reviewsList">
-    <h1>Movie: {{r.title}}</h1>
+    <h1>{{r.title}}</h1>
     <p>Rating: {{r.rating}}</p>
     <p>Review: {{r.review}}</p>
     <img src="{{r.image_url}}" width="50" height="auto" onerror="this.style.display='none'">

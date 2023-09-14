@@ -34,16 +34,19 @@ export class UserComponent {
 
   deleteReview(review_id,movie_title){
     console.log("deleted this review: ", review_id);
-    this.subDeleteReview=this.reviewSvc.deleteReview(review_id).subscribe({
-      next:(data)=>{
-        let jsonObj = JSON.stringify(data);
-        alert("Your review for "+movie_title + " has been deleted.");
-        this.getUserReviewsList();
-      },
-      error: (e)=>{
-        console.error(e);
+    if (confirm("Are you sure you want to delete your review for "+movie_title+"?")){
+      this.subDeleteReview=this.reviewSvc.deleteReview(review_id).subscribe({
+        next:(data)=>{
+          let jsonObj = JSON.stringify(data);
+          alert("Your review for "+movie_title + " has been deleted.");
+          this.getUserReviewsList();
+        },
+        error: (e)=>{
+          console.error(e);
+      }
+      })
     }
-    })
+
   }
 
 

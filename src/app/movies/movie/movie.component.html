@@ -5,7 +5,7 @@
     <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
-      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
@@ -19,7 +19,7 @@
     <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
-      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
@@ -33,7 +33,7 @@
     <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
-      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
@@ -47,7 +47,7 @@
     <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
-      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
@@ -61,7 +61,7 @@
     <div *ngIf="i<6">
       <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
       <h5>{{m.title}}</h5>
-      <p>Rating <span>{{m.vote_average}}</span></p>
+      <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
     </div>
