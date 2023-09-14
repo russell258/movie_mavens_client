@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { SearchService } from '../search/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  constructor(private router: Router, private searchSvc: SearchService){}
+
+  searchMovies(form: NgForm){
+    const search = form.value.search;
+    console.log(search);
+    form.reset();
+    this.searchSvc.searchString.next(search);
+    this.router.navigate(['/search']);
+  }
 
 }

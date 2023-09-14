@@ -2,13 +2,13 @@
   <!-- trending Movies -->
   <h2>Trending Movies</h2>
   <div *ngFor="let m of trendingMovies?.results; let i = index">
-    <div *ngIf="i<6">
-      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+    <!-- <div *ngIf="i<6"> -->
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto" onerror="this.style.display='none'">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
       <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
 
@@ -17,7 +17,7 @@
   <h2>Popular Movies</h2>
   <div *ngFor="let m of popularMovies?.results; let i = index">
     <div *ngIf="i<6">
-      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto" onerror="this.style.display='none'">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
@@ -31,7 +31,7 @@
   <h2>Movies Playing Now</h2>
   <div *ngFor="let m of playingNow?.results; let i = index">
     <div *ngIf="i<6">
-      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto" onerror="this.style.display='none'">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
@@ -45,7 +45,7 @@
   <h2>Top Rated Movies</h2>
   <div *ngFor="let m of topRatedMovies?.results; let i = index">
     <div *ngIf="i<6">
-      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto" onerror="this.style.display='none'">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>
@@ -59,7 +59,7 @@
   <h2>Upcoming Movies</h2>
   <div *ngFor="let m of upcomingMovies?.results; let i = index">
     <div *ngIf="i<6">
-      <img src="{{m?.backdrop_path}}" width = "200" height = "auto">
+      <img src="{{m?.backdrop_path}}" width = "200" height = "auto" onerror="this.style.display='none'">
       <h5>{{m.title}}</h5>
       <p>Rating <span>{{m.vote_average | number: '1.1-2'}}</span></p>
       <p>Language: <b>{{m.original_language}}</b></p>

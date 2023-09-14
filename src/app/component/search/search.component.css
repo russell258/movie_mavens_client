@@ -1,0 +1,8 @@
+.movie-card{
+  width: 250px;
+  height: auto;
+  border: 2px groove blue;
+  border-radius: 10px;
+  display:flex;
+  background-color: honeydew
+}

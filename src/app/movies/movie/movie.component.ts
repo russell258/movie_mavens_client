@@ -88,7 +88,7 @@ export class MovieComponent {
     this.subTrendingMovies=this.movieSvc.getMoviesThreePaths('trending','movie','week').subscribe({
       next: (v) => {
         this.modifyBackdrop(v);
-        this.trendingMovies = v
+        this.trendingMovies = v;
       },
       error: (e) => console.error(e),
       complete:() => console.log(this.trendingMovies)

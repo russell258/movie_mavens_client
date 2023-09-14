@@ -1,0 +1,17 @@
+<mat-card class="movie-card" *ngFor="let m of searchList?.results; let i = index">
+  <mat-card-header>
+    {{m.title}}
+  </mat-card-header>
+  <mat-card-content>
+    {{m.overview}}
+  </mat-card-content>
+  <img mat-card-image src="{{m?.backdrop_path}}" width="200" height="auto" onerror="this.style.display='none'">
+  <mat-card-footer>
+    Rating: {{m.vote_average | number: '1.1-2'}}, Language: {{m.original_language}}
+  </mat-card-footer>
+  <mat-card-actions>
+    <button (click) = "writeReview(m)" [routerLink]="['/write', m.id]">Write a Review for {{m.title}}</button>
+  </mat-card-actions>
+</mat-card>
+
+

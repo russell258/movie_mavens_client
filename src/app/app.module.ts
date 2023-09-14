@@ -13,13 +13,16 @@ import { UserComponent } from './users/user/user.component';
 import { MovieComponent } from './movies/movie/movie.component';
 import { WriteComponent } from './reviews/write/write.component';
 import { ReviewComponent } from './reviews/review/review.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component'
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './component/home/home.component';
+import { SearchComponent } from './component/search/search.component';
+import { MaterialModule } from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -33,11 +36,14 @@ import { HomeComponent } from './component/home/home.component';
     NavbarComponent,
     AboutComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatSlideToggleModule,
