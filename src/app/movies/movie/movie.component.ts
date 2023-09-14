@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { MovieService } from './movie.service';
 import { MovieModel, ResultsEntity } from './movie-model';
 import { environment } from 'src/environments/environment.development';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movie',
@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent {
+
+  currentPage$ = new BehaviorSubject(1);
 
   latestMovie: any;
   popularMovies !: MovieModel;
@@ -28,6 +30,8 @@ export class MovieComponent {
   subMoviesList!:Subscription;
 
   constructor(private movieSvc: MovieService){}
+
+  //split this later
 
   ngOnInit():void{
     this.getPopularMovies();

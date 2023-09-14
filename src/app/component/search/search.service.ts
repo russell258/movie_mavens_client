@@ -12,8 +12,8 @@ export class SearchService {
 
   searchString = new BehaviorSubject<string>('');
 
-  searchMovies(searchInput: string): Observable<any>{
-    return this.httpService.request('GET',`/api/search?query=${searchInput}`,'');
+  searchMovies(searchInput: string, page:number): Observable<any>{
+    return this.httpService.request('GET',`/api/search?query=${searchInput}&page=${page}`,'');
   }
 
 }

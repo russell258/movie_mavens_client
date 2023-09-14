@@ -6,3 +6,9 @@
   display:flex;
   background-color: honeydew
 }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
