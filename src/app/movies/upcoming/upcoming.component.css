@@ -4,7 +4,7 @@
   border: 2px groove blue;
   border-radius: 10px;
   display:flex;
-  background-color: honeydew;
+  background-color: ivory;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left:auto;
@@ -44,4 +44,8 @@
 
 .prev-button{
   margin-left:10px;
+}
+
+.page-button{
+  margin-right:10px;
 }
