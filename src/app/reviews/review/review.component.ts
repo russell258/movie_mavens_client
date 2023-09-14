@@ -41,10 +41,23 @@ export class ReviewComponent {
   getReviewsList(){
     this.subReviewsList = this.reviewSvc.getAllReviews().subscribe({
       next: (data)=>{
+        this.convert(data);
         this.reviewsList=data;
         console.log(this.reviewsList);
       }
     });
+  }
+
+
+
+  convert(data:any){
+    if (data.results){
+      data.results.forEach( r => {
+        r.rating = parseInt(r.rating)
+      });
+    }
+
+    return data;
   }
 
 }
